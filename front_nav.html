@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="directoryApp">
+<head>
+    <title>Frontpage</title>
+    <!-- CSS Link - AngularJS Link - Directory JS Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script type="text/javascript" src="cabinetController.js"></script>
+</head>
+<body ng-controller = "cabinetController">
+    <header class="head-container">
+        <a href="http://buycabinetdirect.com/" title="Buy Cabinet Direct" class="logo">
+            <img src="http://buycabinetdirect.com/media/logo/default/logo_1149740_web_meitu_6.jpg" alt="Buy Cabinet Direct"> 
+        </a>
+    </header>
+    <div class="searchBar">
+        <input type="text" ng-model="search" placeholder="Enter Cabinet">
+        <br>
+        <span style="margin-left: 100px; position: relative; top: 15px;
+        font-family: verdana, geneva; font-size: large; color: #00ccff;">Assembled Cabinets</span>
+        {{Search}}
+        <ul>
+            <li ng-repeat="item in list | filter: search">
+                <em>
+                    <h4>
+                        <img ng-src='{{item.image}}' />
+                        <br>
+                        {{ item.type }}
+                        <br>
+                        {{ item.color }}
+                        <br>
+                        {{ item.snippet }}
+                    </h4>
+                </em>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
